@@ -45,6 +45,7 @@ p {
   font-weight: 300;
   text-align: center;
   width: 100%;
+  height: 2rem;
 }
 
 .contact {
@@ -54,6 +55,10 @@ p {
 .contact p {
   font-size: 0.8em;
   font-weight: 200;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 767px) {

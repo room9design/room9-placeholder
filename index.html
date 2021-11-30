@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Room 9 Design</title>
-</head>
-<style>
+  </head>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-</style>
-<link rel="stylesheet" href="styles.css">
-</link>
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
-<body>
+  <body>
     <div class="content">
-        <h1>Room 9 Design</h1>
-        <p>A digital strategy agency with a focus on design.</p>
-        <p>Coming soon!</p>
-        <div class="contact">
-            <p><i>Please contact <a href="mailto:hello@room9.design">hello@room9.design</a> for any inquiries in the meantime.</i></p>
-        </div>
+      <h1>Room 9 Design</h1>
+      <div>
+        <p id="line1">A digital strategy agency with a focus on design.</p>
+        <p id="line2">Coming soon!</p>
+      </div>
+
+      <div class="contact">
+        <p>
+          <i
+            >Please contact
+            <a href="mailto:hello@room9.design">hello@room9.design</a> for any
+            inquiries in the meantime.</i
+          >
+        </p>
+      </div>
     </div>
+  </body>
+  <script>
+    const target1 = document.getElementById('line1');
+    const target2 = document.getElementById('line2');
+    const typewriter1 = new Typewriter(target1, {
+      autoStart: true,
+    });
 
-  
-</body>
+    const typewriter2 = new Typewriter(target2, {
+      autoStart: true,
+    });
 
+    const typewriter1Cursor =
+      document.getElementsByClassName('Typewriter__cursor')[0];
+    const typewriter2Cursor =
+      document.getElementsByClassName('Typewriter__cursor')[1];
+
+    console.log(typewriter2Cursor);
+    typewriter2Cursor.classList.add('hide');
+    const chain2 = () => {
+      typewriter2Cursor.classList.toggle('hide');
+    };
+    const chain = () => {
+      typewriter1Cursor.classList.add('hide');
+      typewriter2Cursor.classList.toggle('hide');
+      typewriter2.typeString('Coming Soon!').callFunction(chain2).start();
+    };
+    typewriter1
+      .typeString('A digital strategy agency with a focus on creative design.')
+      .callFunction(chain)
+      .start();
+  </script>
 </html>
