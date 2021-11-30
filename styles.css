@@ -52,13 +52,20 @@ p {
   margin-top: 4rem;
 }
 
+.line1,
+.line2,
+.contact {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
 .contact p {
   font-size: 0.8em;
   font-weight: 200;
 }
 
 .hide {
-  display: none;
+  opacity: 0;
 }
 
 @media (max-width: 767px) {

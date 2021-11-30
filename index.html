@@ -29,13 +29,13 @@
     <div class="content">
       <h1>Room 9 Design</h1>
       <div>
-        <p id="line1">
+        <p id="line1" class="line1 hide">
           A digital strategy agency with a focus on creative design.
         </p>
-        <p id="line2">Coming soon!</p>
+        <p id="line2" class="line2 hide">Coming soon!</p>
       </div>
 
-      <div class="contact">
+      <div class="contact hide" id="contact">
         <p>
           <i
             >Please contact
@@ -46,35 +46,26 @@
       </div>
     </div>
   </body>
+
   <script>
+    /*** It looks like you're tech-savvy if you're looking through here. Have a portfolio you'd like an opinion on? Send it to hello@room9.design! ***/
+
     const target1 = document.getElementById('line1');
     const target2 = document.getElementById('line2');
-    const typewriter1 = new Typewriter(target1, {
-      autoStart: true,
-    });
+    const contact = document.getElementById('contact');
+    const runAnimations = () => {
+      setTimeout(() => {
+        target1.classList.toggle('hide');
+      }, 400);
 
-    const typewriter2 = new Typewriter(target2, {
-      autoStart: true,
-    });
+      setTimeout(() => {
+        target2.classList.toggle('hide');
+      }, 1800);
 
-    const typewriter1Cursor =
-      document.getElementsByClassName('Typewriter__cursor')[0];
-    const typewriter2Cursor =
-      document.getElementsByClassName('Typewriter__cursor')[1];
-
-    console.log(typewriter2Cursor);
-    typewriter2Cursor.classList.add('hide');
-    const chain2 = () => {
-      typewriter2Cursor.classList.toggle('hide');
+      setTimeout(() => {
+        contact.classList.toggle('hide');
+      }, 2800);
     };
-    const chain = () => {
-      typewriter1Cursor.classList.add('hide');
-      typewriter2Cursor.classList.toggle('hide');
-      typewriter2.typeString('Coming Soon!').callFunction(chain2).start();
-    };
-    typewriter1
-      .typeString('A digital strategy agency with a focus on creative design.')
-      .callFunction(chain)
-      .start();
+    runAnimations();
   </script>
 </html>
